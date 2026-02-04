@@ -51,14 +51,15 @@ export const RadioPlayer = ({ className, variant = "hero" }: RadioPlayerProps) =
         <audio ref={audioRef} src={streamUrl} preload="none" />
         <div className="container flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <Button
-              size="icon"
-              variant="ghost"
-              onClick={togglePlay}
-              className="h-10 w-10 rounded-full bg-primary text-primary-foreground hover:bg-primary/90"
-            >
-              {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5 ml-0.5" />}
-            </Button>
+          <Button
+            size="icon"
+            variant="ghost"
+            onClick={togglePlay}
+            aria-label={isPlaying ? "Pausar rádio" : "Reproduzir rádio"}
+            className="h-10 w-10 rounded-full bg-primary text-primary-foreground hover:bg-primary/90"
+          >
+            {isPlaying ? <Pause className="h-5 w-5" aria-hidden="true" /> : <Play className="h-5 w-5 ml-0.5" aria-hidden="true" />}
+          </Button>
             <div className="hidden sm:block">
               <AudioWave isPlaying={isPlaying} />
             </div>
@@ -76,15 +77,17 @@ export const RadioPlayer = ({ className, variant = "hero" }: RadioPlayerProps) =
               size="icon"
               variant="ghost"
               onClick={toggleMute}
+              aria-label={isMuted ? "Ativar som" : "Silenciar"}
               className="h-8 w-8"
             >
-              {isMuted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
+              {isMuted ? <VolumeX className="h-4 w-4" aria-hidden="true" /> : <Volume2 className="h-4 w-4" aria-hidden="true" />}
             </Button>
             <Slider
               value={[isMuted ? 0 : volume]}
               onValueChange={(v) => setVolume(v[0])}
               max={100}
               step={1}
+              aria-label="Volume"
               className="w-24 hidden sm:flex"
             />
           </div>
@@ -105,6 +108,7 @@ export const RadioPlayer = ({ className, variant = "hero" }: RadioPlayerProps) =
       <Button
         size="lg"
         onClick={togglePlay}
+        aria-label={isPlaying ? "Pausar rádio" : "Reproduzir rádio"}
         className={cn(
           "h-24 w-24 rounded-full transition-all duration-300",
           "bg-gradient-primary hover:scale-105 shadow-glow",
@@ -112,9 +116,9 @@ export const RadioPlayer = ({ className, variant = "hero" }: RadioPlayerProps) =
         )}
       >
         {isPlaying ? (
-          <Pause className="h-10 w-10" />
+          <Pause className="h-10 w-10" aria-hidden="true" />
         ) : (
-          <Play className="h-10 w-10 ml-1" />
+          <Play className="h-10 w-10 ml-1" aria-hidden="true" />
         )}
       </Button>
 
@@ -125,15 +129,17 @@ export const RadioPlayer = ({ className, variant = "hero" }: RadioPlayerProps) =
           size="icon"
           variant="ghost"
           onClick={toggleMute}
+          aria-label={isMuted ? "Ativar som" : "Silenciar"}
           className="h-10 w-10"
         >
-          {isMuted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
+          {isMuted ? <VolumeX className="h-5 w-5" aria-hidden="true" /> : <Volume2 className="h-5 w-5" aria-hidden="true" />}
         </Button>
         <Slider
           value={[isMuted ? 0 : volume]}
           onValueChange={(v) => setVolume(v[0])}
           max={100}
           step={1}
+          aria-label="Volume"
           className="w-32"
         />
       </div>
