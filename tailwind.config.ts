@@ -7,12 +7,16 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: "1.5rem",
       screens: {
         "2xl": "1400px",
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        display: ['Space Grotesk', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -47,6 +51,13 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        glow: {
+          primary: "hsl(var(--glow-primary))",
+          accent: "hsl(var(--glow-accent))",
+        },
+        surface: {
+          elevated: "hsl(var(--surface-elevated))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -65,25 +76,42 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "wave-1": {
+          "0%, 100%": { height: "20%" },
+          "50%": { height: "80%" },
+        },
+        "wave-2": {
+          "0%, 100%": { height: "40%" },
+          "50%": { height: "100%" },
+        },
+        "wave-3": {
+          "0%, 100%": { height: "60%" },
+          "50%": { height: "30%" },
+        },
+        "wave-4": {
+          "0%, 100%": { height: "30%" },
+          "50%": { height: "90%" },
+        },
+        "wave-5": {
+          "0%, 100%": { height: "50%" },
+          "50%": { height: "70%" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "wave-1": "wave-1 0.8s ease-in-out infinite",
+        "wave-2": "wave-2 0.9s ease-in-out infinite 0.1s",
+        "wave-3": "wave-3 0.7s ease-in-out infinite 0.2s",
+        "wave-4": "wave-4 1s ease-in-out infinite 0.15s",
+        "wave-5": "wave-5 0.85s ease-in-out infinite 0.25s",
       },
     },
   },
