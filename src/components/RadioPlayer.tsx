@@ -17,8 +17,7 @@ export const RadioPlayer = ({ className, variant = "hero" }: RadioPlayerProps) =
   const [isMuted, setIsMuted] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  // Placeholder stream URL - replace with actual stream
-  const streamUrl = "https://stream.zeno.fm/example";
+  const streamUrl = "http://129.146.110.208:8001/radio.mp3";
 
   useEffect(() => {
     if (audioRef.current) {
