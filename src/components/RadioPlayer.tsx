@@ -13,7 +13,7 @@ interface RadioPlayerProps {
 
 export const RadioPlayer = ({ className, variant = "hero" }: RadioPlayerProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [volume, setVolume] = useState(80);
+  const [volume, setVolume] = useState(60);
   const [isMuted, setIsMuted] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
