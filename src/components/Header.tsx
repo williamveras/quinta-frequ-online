@@ -32,7 +32,7 @@ export const Header = () => {
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav aria-label="Menu principal" className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -51,19 +51,22 @@ export const Header = () => {
           size="icon"
           className="md:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
+          aria-expanded={isMenuOpen}
         >
-          {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {isMenuOpen ? <X className="h-6 w-6" aria-hidden="true" /> : <Menu className="h-6 w-6" aria-hidden="true" />}
         </Button>
       </div>
 
       {/* Mobile Navigation */}
-      <div
+      <nav
+        aria-label="Menu principal mobile"
         className={cn(
           "md:hidden absolute top-16 left-0 right-0 glass border-t border-border/50 transition-all duration-300",
           isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         )}
       >
-        <nav className="flex flex-col p-4 gap-2">
+        <div className="flex flex-col p-4 gap-2">
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -74,8 +77,8 @@ export const Header = () => {
               {item.label}
             </a>
           ))}
-        </nav>
-      </div>
+        </div>
+      </nav>
     </header>
   );
 };
