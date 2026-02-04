@@ -19,11 +19,19 @@ export const RadioPlayer = ({ className, variant = "hero" }: RadioPlayerProps) =
 
   const streamUrl = "http://129.146.110.208:8001/radio.mp3";
 
+  // Aplica o volume sempre que mudar ou na montagem
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = isMuted ? 0 : volume / 100;
     }
   }, [volume, isMuted]);
+
+  // Garante que o volume inicial seja aplicado quando o audio element estiver pronto
+  const handleCanPlay = () => {
+    if (audioRef.current) {
+      audioRef.current.volume = isMuted ? 0 : volume / 100;
+    }
+  };
 
   const togglePlay = () => {
     if (audioRef.current) {
@@ -48,7 +56,7 @@ export const RadioPlayer = ({ className, variant = "hero" }: RadioPlayerProps) =
         "fixed bottom-0 left-0 right-0 z-50 glass border-t border-border/50 px-4 py-3",
         className
       )}>
-        <audio ref={audioRef} src={streamUrl} preload="none" />
+        <audio ref={audioRef} src={streamUrl} preload="none" onCanPlay={handleCanPlay} />
         <div className="container flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
           <Button
@@ -101,7 +109,7 @@ export const RadioPlayer = ({ className, variant = "hero" }: RadioPlayerProps) =
       "flex flex-col items-center gap-6",
       className
     )}>
-      <audio ref={audioRef} src={streamUrl} preload="none" />
+      <audio ref={audioRef} src={streamUrl} preload="none" onCanPlay={handleCanPlay} />
       
       <LiveBadge className="mb-2" />
       
