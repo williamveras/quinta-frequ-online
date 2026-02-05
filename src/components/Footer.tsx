@@ -1,4 +1,5 @@
-import { Radio, Heart } from "lucide-react";
+import { Heart } from "lucide-react";
+import logoImg from "@/assets/logo-quinta-frequencia.jpeg";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -9,9 +10,11 @@ export const Footer = () => {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           {/* Logo */}
           <a href="#inicio" className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-lg bg-gradient-primary flex items-center justify-center">
-              <Radio className="h-4 w-4 text-primary-foreground" />
-            </div>
+            <img 
+              src={logoImg} 
+              alt="Quinta Frequência" 
+              className="h-10 w-10 rounded-full object-cover"
+            />
             <span className="font-display font-bold">
               Quinta Frequência
             </span>
