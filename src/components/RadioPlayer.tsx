@@ -17,7 +17,7 @@ export const RadioPlayer = ({ className, variant = "hero" }: RadioPlayerProps) =
   const [isMuted, setIsMuted] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
- const streamUrl = "https://5serie.net:8001/radio.mp3";
+ const streamUrl = "https://5serie.net/radio.mp3";
 
   // Aplica o volume sempre que mudar ou na montagem
   useEffect(() => {
