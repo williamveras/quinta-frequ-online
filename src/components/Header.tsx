@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Menu, X, Radio } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import logoImg from "@/assets/logo-quinta-frequencia.jpeg";
 
 const navItems = [
   { label: "Início", href: "#inicio" },
@@ -18,9 +19,11 @@ export const Header = () => {
       <div className="container flex items-center justify-between h-16 px-4">
         {/* Logo */}
         <a href="#inicio" className="flex items-center gap-2 group">
-          <div className="h-10 w-10 rounded-lg bg-gradient-primary flex items-center justify-center shadow-glow-sm group-hover:scale-105 transition-transform">
-            <Radio className="h-5 w-5 text-primary-foreground" />
-          </div>
+          <img 
+            src={logoImg} 
+            alt="Quinta Frequência - Web Rádio" 
+            className="h-12 w-12 rounded-full object-cover shadow-glow-sm group-hover:scale-105 transition-transform"
+          />
           <div className="flex flex-col">
             <span className="font-display font-bold text-lg leading-tight">
               Quinta
